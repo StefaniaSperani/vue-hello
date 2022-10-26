@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <script src="./js/libreria.js"></script> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Prove</title>
+
+</head>
+
+<body>
+    <!-- Inizializzo lo script di VUE -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <!-- Creo il div che conterrà il mio contenuto dandogli un id -->
+    <div id="app">
+        <!-- Creo il titolo bindando la classe, e metto tra i baffi 
+            la mia variabile, che richiamo dopo per inserirci cio che voglio-->
+        <h1 v-bind:class="myClass">{{hello}}</h1>
+        <!-- Devo centrare anche le immagini, quindi creo il div a cui bindo le classi flex -->
+        <div v-bind:class="myClassFlex">
+            <!-- Inserisco le immagini, in questo caso mi piaceva l'effetto
+            di 3 immagini vicine, bindando la classe con cui le darò 
+            un piccolo stile sulla grandezza-->
+            <img v-bind:src="myImage" :class="myClassImg" alt="myAlt">
+            <img v-bind:src="myImage" :class="myClassImg" alt="myAlt">
+            <img v-bind:src="myImage" :class="myClassImg" alt="myAlt">
+        </div>
+        <!-- prova di aggiunta input -->
+        <input v-model="textInput" :class="myCenter">
+    </div>
+
+    <script>
+        // creo la variabile per la funzione createApp, presa dalla variabile globale Vue
+        const { createApp } = Vue
+        // ora invoco la funzione, dove al suo interno inizializzo l'applicazione
+        createApp({
+            // data sarà
+            data() {
+                // il return, in questo caso, delle classi che ho dato nell'html
+                return {
+                    hello: 'Hello Vue!',
+                    myClass: 'text-center purple mt-4',
+                    myImage: 'vue.png',
+                    myClassImg: 'little',
+                    myClassFlex: 'd-flex justify-content-center p-3',
+                    // prova di aggiunta input
+                    textInput: 'VueJS3!',
+                    myCenter: 'text-center m-auto'
+                    // myAlt: 'vue'  ---NON FUNZIONA :<
+                }
+            }
+            // e infine "monto" sul div contenitore
+        }).mount('#app')
+    </script>
+
+    <!-- <script src="./js/script.js"></script>  -->
+</body>
+
+</html>
