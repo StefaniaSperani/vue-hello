@@ -30,9 +30,9 @@
             <!-- Inserisco le immagini, in questo caso mi piaceva l'effetto
             di 3 immagini vicine, bindando la classe con cui le darò 
             un piccolo stile sulla grandezza-->
-            <img v-bind:src="myImage" :class="myClassImg" alt="myAlt">
-            <img v-bind:src="myImage" :class="myClassImg" alt="myAlt">
-            <img v-bind:src="myImage" :class="myClassImg" alt="myAlt">
+            <img v-bind:src="myImage" :class="myClassImg" :alt="myAlt">
+            <img v-bind:src="myImage" :class="myClassImg" :alt="myAlt">
+            <img v-bind:src="myImage" :class="myClassImg" :alt="myAlt">
         </div>
         <!-- prova di aggiunta input -->
         <input v-model="textInput" :class="myCenter">
@@ -54,12 +54,13 @@
                     myClassFlex: 'd-flex justify-content-center p-3',
                     // prova di aggiunta input
                     textInput: 'VueJS3!',
-                    myCenter: 'text-center m-auto'
-                    // myAlt: 'vue'  ---NON FUNZIONA :<
+                    myCenter: 'text-center m-auto',
+                    myAlt: 'vue'
                 }
             }
             // e infine "monto" sul div contenitore
         }).mount('#app')
+        console.log(createApp)
     </script>
 
     <!-- <script src="./js/script.js"></script>  -->
